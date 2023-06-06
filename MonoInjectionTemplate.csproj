@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="UnityEngine.Modules" Version="2020.3.25" IncludeAssets="compile" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,6 +65,14 @@
       <HintPath>UnityLibs\UnityEngine.PhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>UnityLibs\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CarX.Plugins.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>UnityLibs\CarX.Plugins.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\HackMain.cs" />
@@ -79,6 +88,7 @@
     <Compile Include="src\Utilities\DebugConsole.cs" />
     <Compile Include="src\Utilities\DebugLog.cs" />
     <Compile Include="src\Utilities\Utility.cs" />
+    <Compile Include="src\Utilities\CarXHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="UnityLibs\UnityEngine.CoreModule.dll" />
@@ -87,6 +97,8 @@
     <Content Include="UnityLibs\UnityEngine.InputModule.dll" />
     <Content Include="UnityLibs\UnityEngine.Physics2DModule.dll" />
     <Content Include="UnityLibs\UnityEngine.PhysicsModule.dll" />
+    <Content Include="UnityLibs\Assembly-CSharp.dll" />
+    <Content Include="UnityLibs\CarX.Plugins.Core.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

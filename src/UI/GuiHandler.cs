@@ -6,6 +6,7 @@ namespace MonoInjectionTemplate.UI
 {
     public class GuiHandler : MonoBehaviour
     {
+        public static GameObject MGameObject = Loader.MGameObject;
         private GuiWindow _window1;
         private GuiWindow _window2;
         private bool _toggleState = false;
@@ -16,7 +17,8 @@ namespace MonoInjectionTemplate.UI
 
         public void Start()
         {
-            _window1 = gameObject.AddComponent<GuiWindow>();
+            _window1 = MGameObject.AddComponent<GuiWindow>();
+            Utilities.ConsoleBase.WriteLine("Window 1 Initialized");
             _window1.SetWindowTitle("Test Window");
             _window1.SetParameters(20,200);
             _window1.AddButton("Button 1", () => ConsoleBase.WriteLine("Button 1 Was Pressed"));

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using MonoInjectionTemplate.Utilities;
 using Object = UnityEngine.Object;
 
 namespace MonoInjectionTemplate
@@ -9,10 +10,12 @@ namespace MonoInjectionTemplate
         // Create a new GameObject
         // In unity, a GameObject does not have a physical body, it is a parent 'container'
         // The GameObject can be assigned components, 'Children'
-        private static readonly GameObject MGameObject = new GameObject();
+        public static GameObject MGameObject;
         
         public static void Load() 
         { // The function that our injector calls inside our target process
+            MGameObject = new GameObject();
+            Utilities.ConsoleBase.WriteLine("Loaded");
             
             // Here, we add a Component 'Child' to our game object.
             // For example is we had the reference to this component we could use functions like:
@@ -28,7 +31,9 @@ namespace MonoInjectionTemplate
         }
         public static void Unload() 
         { // Destroys the Created object, again called by our injector to "eject" the assembly.
-            Object.Destroy(MGameObject); //Destroys all instances of the object.
+            Utilities.ConsoleBase.WriteLine("Unloaded");
+            //Object.Destroy(MGameObject); //Destroys all instances of the object.
+            Object.DestroyImmediate(MGameObject); //Destroys the object immediately, even if it is active.
         }
     }
 }
